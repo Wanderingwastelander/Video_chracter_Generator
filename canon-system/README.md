@@ -31,6 +31,8 @@ Canon System manages character and environment definitions for consistent AI-gen
 2. **Set up the backend**
    ```bash
    cd backend
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
@@ -47,11 +49,24 @@ Canon System manages character and environment definitions for consistent AI-gen
 
 ### Running the App
 
-**Option 1: Run both servers manually**
+**Option 1: Use the start script (Recommended)**
+
+On Linux/Mac:
+```bash
+./start.sh
+```
+
+On Windows:
+```cmd
+start.bat
+```
+
+**Option 2: Run both servers manually**
 
 Terminal 1 (Backend):
 ```bash
 cd backend
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
@@ -61,12 +76,7 @@ cd frontend
 npm run dev
 ```
 
-**Option 2: Use the start script**
-```bash
-./start.sh
-```
-
-Then open http://localhost:3000 in your browser.
+Then open http://localhost:5173 in your browser (Vite default port).
 
 ## Configuration
 

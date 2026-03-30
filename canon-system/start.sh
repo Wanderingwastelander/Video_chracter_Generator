@@ -23,6 +23,15 @@ fi
 # Start backend
 echo "📦 Starting backend server..."
 cd backend
+
+# Create virtual environment if it doesn't exist
+if [ ! -d "venv" ]; then
+    echo "Creating Python virtual environment..."
+    python3 -m venv venv
+fi
+
+# Activate virtual environment and install dependencies
+source venv/bin/activate
 pip install -r requirements.txt --quiet
 
 # Start backend in background
@@ -63,7 +72,7 @@ echo "════════════════════════�
 echo "  🎬 Canon System is running!"
 echo "═══════════════════════════════════════════════"
 echo ""
-echo "  Frontend: http://localhost:3000"
+echo "  Frontend: http://localhost:5173"
 echo "  Backend:  http://localhost:8000"
 echo "  API Docs: http://localhost:8000/docs"
 echo ""

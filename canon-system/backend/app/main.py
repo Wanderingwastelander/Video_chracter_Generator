@@ -28,6 +28,11 @@ app.add_middleware(
 
 # Mount static files for serving images
 DATA_DIR = os.environ.get("CANON_DATA_DIR", "./data")
+# Create data directory and subdirectories if they don't exist
+os.makedirs(os.path.join(DATA_DIR, "characters"), exist_ok=True)
+os.makedirs(os.path.join(DATA_DIR, "environments"), exist_ok=True)
+os.makedirs(os.path.join(DATA_DIR, "templates"), exist_ok=True)
+
 if os.path.exists(DATA_DIR):
     app.mount("/files", StaticFiles(directory=DATA_DIR), name="files")
 
